@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://b58mskgdmfv2l"]
+
+[ext_resource type="PackedScene" uid="uid://dtsskg6ejgr1x" path="res://player.tscn" id="1_ari72"]
+[ext_resource type="Texture2D" uid="uid://b7lkhbwqgsalc" path="res://icon.svg" id="2_qd4on"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5qn8m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nofq"]
+size = Vector2(127.778, 129.73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ckg1"]
+size = Vector2(329, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6asvj"]
+size = Vector2(392, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey28c"]
+size = Vector2(20, 446.799)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ari72")]
+position = Vector2(23, 551)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_5qn8m")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(573, 606.5)
+scale = Vector2(8.98438, 0.570313)
+texture = ExtResource("2_qd4on")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(574.499, 607.5)
+scale = Vector2(8.99219, 0.578125)
+shape = SubResource("RectangleShape2D_1nofq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(513, 533)
+scale = Vector2(2.57813, 0.1875)
+texture = ExtResource("2_qd4on")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(513.5, 533)
+shape = SubResource("RectangleShape2D_5ckg1")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D"]
+position = Vector2(512, 534)
+shape = SubResource("RectangleShape2D_6asvj")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1291, 428)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(15.9999, 37)
+rotation = 0.785398
+scale = Vector2(0.640625, 3.24609)
+texture = ExtResource("2_qd4on")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(16, -7)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_ey28c")
+
+[connection signal="body_entered" from="StaticBody2D2/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="StaticBody2D2/Area2D" to="Player" method="_on_area_2d_body_exited"]

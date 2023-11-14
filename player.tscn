@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtsskg6ejgr1x"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_8n508"]
+[ext_resource type="Texture2D" uid="uid://bxbxpvng84rrg" path="res://assets/nissen_sheet1.png" id="2_kxk7s"]
+[ext_resource type="Texture2D" uid="uid://t264hhnfebua" path="res://assets/nissen_sheet2.png" id="3_2p6sx"]
+[ext_resource type="Texture2D" uid="uid://boh6jvota5nqj" path="res://assets/nissen_sheet3.png" id="4_uhbny"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dem0k"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sr1n3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csert"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kxk7s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2p6sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uhbny")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_mxyh8"]
+resource_name = "run"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_klyqd"]
+_data = {
+"run": SubResource("Animation_mxyh8")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8n508")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_dem0k")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_sr1n3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_csert")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_klyqd")
+}

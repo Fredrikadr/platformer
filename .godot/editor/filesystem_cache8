@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1699947493
+icon.svg::CompressedTexture2D::4655791593134533736::1699277098::1699277109::1::::<><>::
+player.gd::GDScript::-1::1699903618::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8531120006806902607::1699947493::0::1::::<><>::res://player.gd<>uid://bxbxpvng84rrg::::res://assets/nissen_sheet1.png<>uid://t264hhnfebua::::res://assets/nissen_sheet2.png<>uid://boh6jvota5nqj::::res://assets/nissen_sheet3.png
+test_level.tscn::PackedScene::4560971741576422845::1699904367::0::1::::<><>::uid://5v45lrimqsnr
+::res://assets/::1699947493
+nissen.png::CompressedTexture2D::6251157952150625206::1699880075::1699947489::1::::<><>::
+nissen_sheet1.png::CompressedTexture2D::4004252866254789892::1699901804::1699947491::1::::<><>::
+nissen_sheet2.png::CompressedTexture2D::1391260622355814780::1699901804::1699947492::1::::<><>::
+nissen_sheet3.png::CompressedTexture2D::3385414563306959917::1699901804::1699947493::1::::<><>::
