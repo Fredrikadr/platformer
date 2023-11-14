@@ -29,14 +29,10 @@ func _physics_process(delta):
 
 
 func _on_roam_timer_timeout():
-	print("timeout")
 	roam = false
 	wait_timer.start(2)
 	
 	
-	
-	
-		
 	
 
 func change_direction():

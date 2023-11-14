@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2hf0fvq1wvag"]
+[gd_scene load_steps=5 format=3 uid="uid://d2hf0fvq1wvag"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_gcr1j"]
 [ext_resource type="Texture2D" uid="uid://b7lkhbwqgsalc" path="res://icon.svg" id="2_45gum"]
+[ext_resource type="Script" path="res://Damageable.gd" id="3_2m7dr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb17q"]
 size = Vector2(8, 8)
@@ -26,6 +27,9 @@ autostart = true
 
 [node name="wait_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("3_2m7dr")
 
 [connection signal="timeout" from="roam_timer" to="." method="_on_roam_timer_timeout"]
 [connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]
