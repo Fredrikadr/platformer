@@ -27,7 +27,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
-	print(direction)
+
 	if direction:
 		velocity.x = direction * SPEED
 		sprite.play("run")

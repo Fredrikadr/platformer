@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2hf0fvq1wvag"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_gcr1j"]
+[ext_resource type="Texture2D" uid="uid://b7lkhbwqgsalc" path="res://icon.svg" id="2_45gum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb17q"]
+size = Vector2(8, 8)
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(167, 550)
+collision_layer = 4
+script = ExtResource("1_gcr1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0703125, 0.0664063)
+texture = ExtResource("2_45gum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tb17q")
+debug_color = Color(0.988235, 0, 0.290196, 0.419608)
+
+[node name="roam_timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="wait_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="roam_timer" to="." method="_on_roam_timer_timeout"]
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b58mskgdmfv2l"]
+[gd_scene load_steps=9 format=3 uid="uid://b58mskgdmfv2l"]
 
 [ext_resource type="PackedScene" uid="uid://dtsskg6ejgr1x" path="res://player.tscn" id="1_ari72"]
 [ext_resource type="Texture2D" uid="uid://b7lkhbwqgsalc" path="res://icon.svg" id="2_qd4on"]
+[ext_resource type="PackedScene" uid="uid://d2hf0fvq1wvag" path="res://enemy.tscn" id="3_e02qe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5qn8m"]
 
@@ -65,6 +66,8 @@ texture = ExtResource("2_qd4on")
 position = Vector2(16, -7)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_ey28c")
+
+[node name="Enemy" parent="." instance=ExtResource("3_e02qe")]
 
 [connection signal="body_entered" from="StaticBody2D2/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="StaticBody2D2/Area2D" to="Player" method="_on_area_2d_body_exited"]

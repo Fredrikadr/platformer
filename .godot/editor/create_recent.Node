@@ -1,6 +1,10 @@
+Timer
+RayCast2D
+Control
 CollisionShape2D
-Area2D
 Sprite2D
+CharacterBody2D
+Area2D
 CollisionPolygon2D
 StaticBody2D
 AnimationPlayer
@@ -8,4 +12,3 @@ AnimatedSprite2D
 AnimationTree
 Camera2D
 TileMap
-CharacterBody2D
