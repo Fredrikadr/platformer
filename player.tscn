@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtsskg6ejgr1x"]
+[gd_scene load_steps=12 format=3 uid="uid://dtsskg6ejgr1x"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8n508"]
 [ext_resource type="Texture2D" uid="uid://bxbxpvng84rrg" path="res://assets/nissen_sheet1.png" id="2_kxk7s"]
 [ext_resource type="Texture2D" uid="uid://t264hhnfebua" path="res://assets/nissen_sheet2.png" id="3_2p6sx"]
 [ext_resource type="Texture2D" uid="uid://boh6jvota5nqj" path="res://assets/nissen_sheet3.png" id="4_uhbny"]
+[ext_resource type="Script" path="res://Weapon.gd" id="5_yu8q3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dem0k"]
 radius = 4.0
@@ -41,6 +42,9 @@ _data = {
 "run": SubResource("Animation_mxyh8")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npvo3"]
+size = Vector2(6, 14)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8n508")
 
@@ -61,3 +65,10 @@ sprite_frames = SubResource("SpriteFrames_csert")
 libraries = {
 "": SubResource("AnimationLibrary_klyqd")
 }
+
+[node name="Weapon" type="Area2D" parent="."]
+script = ExtResource("5_yu8q3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_npvo3")

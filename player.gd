@@ -5,9 +5,15 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 var near_edge = false
 @onready var sprite = $AnimatedSprite2D
+@onready var weapon = $Weapon/CollisionShape2D
+@onready var facing_shape = $Weapon
+
+
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.3
+
 
 
 func _physics_process(delta):
@@ -21,6 +27,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
+	print(direction)
 	if direction:
 		velocity.x = direction * SPEED
 		sprite.play("run")
@@ -29,6 +36,10 @@ func _physics_process(delta):
 		sprite.play("default")
 	if direction != 0:
 		sprite.flip_h = (direction == -1)
+		if direction < 0:
+			weapon.position.x = facing_shape.face_left
+		else:
+			weapon.position.x = facing_shape.face_right
 	
 	move_and_slide()
 	

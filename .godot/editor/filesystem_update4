@@ -1,3 +1,4 @@
 res://player.gd
-res://player.tscn
 res://test_level.tscn
+res://player.tscn
+res://Weapon.gd
