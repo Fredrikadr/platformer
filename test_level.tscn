@@ -24,6 +24,7 @@ size = Vector2(20, 446.799)
 position = Vector2(23, 551)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_5qn8m")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
@@ -48,6 +49,8 @@ position = Vector2(513.5, 533)
 shape = SubResource("RectangleShape2D_5ckg1")
 
 [node name="Area2D" type="Area2D" parent="StaticBody2D2"]
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D"]
 position = Vector2(512, 534)
@@ -55,6 +58,7 @@ shape = SubResource("RectangleShape2D_6asvj")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(1291, 428)
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
 position = Vector2(15.9999, 37)

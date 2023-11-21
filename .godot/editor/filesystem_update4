@@ -1,7 +1,5 @@
-res://player.gd
 res://test_level.tscn
 res://player.tscn
-res://Weapon.gd
-res://Enemy.gd
 res://enemy.tscn
-res://Damageable.gd
+res://player.gd
+res://Enemy.gd

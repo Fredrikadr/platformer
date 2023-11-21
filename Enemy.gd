@@ -40,7 +40,6 @@ func change_direction():
 		direction = "left"
 	elif direction == "left":
 		direction = "right"
-	print(direction)
 
 
 
